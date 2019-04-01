@@ -22,6 +22,9 @@ source .venv/bin/activate
 ```
 - Creer une base de donnees sur pgAdmin
 - Renseigner les informations sur la connection a la base de donnees dans le fichier settings.py
+```python
+DATABASES = {     'default': {         'ENGINE': 'django.db.backends.postgresql',         'NAME': 'utaskdb',         'USER': 'robert',         'PASSWORD': 'robert',         'HOST': '127.0.0.1',         'PORT': '5432',     } }
+```
 - Lancer les migrations
 ```bash
 python manage.py migrate
