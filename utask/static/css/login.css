@@ -1,9 +1,81 @@
-html{
-    width: 100%;
-    height: 100%;
-}
 body {
+    margin: 0;
     width: 100%;
     height: 100%;
     background: url("../images/simpleBG.svg") no-repeat center;
+    overflow-y: hidden;
+    font-family: "Segoe UI", Arial, SansSerif, serif;
+}
+
+.card {
+    text-align: center;
+    width: 410px;
+    height: 525px;
+    background-color: white;
+    border-radius: 10px;
+    margin-top: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 1px 1px 5px #b4b4b4;
+}
+
+.switch-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin: 0 0 15px 0;
+    font-size: 18px;
+}
+
+.round-input {
+    border-width: 0;
+    padding: 0px 25px 0 25px;
+    border-radius: 20px;
+    box-shadow: 1px 1px 7px #b4b4b4;
+    width: 290px;
+    height: 43px;
+}
+
+.round-input:focus {
+    outline: none;
+    -moz-outline-radius: 25px;
+}
+
+#connexion-btn {
+    cursor: pointer;
+}
+
+.active-btn {
+    font-weight: bold;
+}
+
+#inscription-btn {
+    cursor: pointer;
+}
+
+.primary-btn {
+    width: 255px;
+    height: 45px;
+    text-align: center;
+    border-width: 0;
+    padding: 2px 10px 2px 10px;
+    border-radius: 25px;
+    color: #ffffff;
+    background-image: linear-gradient(to right, #FCC682, #FF7C23);
+    margin-top: 80px;
+}
+
+.loginlbl {
+    display: block;
+    font-size: 18px;
+    padding-top: 5px;
+}
+
+.passwordlbl {
+    display: block;
+    font-size: 18px;
+    padding-top: 5px;
+}
+
+.form-login {
+
 }

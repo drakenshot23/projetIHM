@@ -3,10 +3,27 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Login U'Task</title>
+    <title>Login WeManage</title>
     <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
 </head>
 <body>
-
+    <div class="card">
+        <img src="{% static 'images/logo.png' %}" alt="logo utask" width="150px" height="150px" style="text-align: center;">
+        <div class="switch-buttons">
+            <span id="connexion-btn" class="active-btn">Connexion</span>
+            <span id="inscription-btn">Inscription</span>
+        </div>
+        <div class="form-login">
+            <form action="/login" method="post">
+                {% csrf_token %}
+                <label for="email" class="loginlbl">Login</label><br />
+                <input type="text" class="round-input" placeholder="exemple@mail.com"><br />
+                <label for="password" class="passwordlbl">Mot de passe</label><br />
+                <input type="text" class="round-input" placeholder="********"><br />
+                <input type="submit" class="primary-btn" value="Connexion">
+            </form>
+        </div>
+    </div>
 </body>
 </html>
