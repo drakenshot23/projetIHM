@@ -1,13 +1,13 @@
 # Projet IHM
 
 ## Description
-
+Application de gestion de projets pour la licence PRISM.
 ## Installation
 - Cloner le projet sur votre machine
 ```bash
-git clone
+git clone https://github.com/drakenshot23/projetIHM.git
 ```
-- Installer [https://www.enterprisedb.com/downloads/](PostgreSQL)
+- Installer [PostgreSQL](https://www.enterprisedb.com/downloads/)
 - Creer l'environnement virtuel
 ```bash
 python -m venv .venv
