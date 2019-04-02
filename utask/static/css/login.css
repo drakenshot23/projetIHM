@@ -7,6 +7,10 @@ body {
     font-family: "Segoe UI", Arial, SansSerif, serif;
 }
 
+.formLogo {
+    margin: 10px auto 10px auto;
+}
+
 .card {
     text-align: center;
     width: 410px;
@@ -37,19 +41,18 @@ body {
 
 .round-input:focus {
     outline: none;
-    -moz-outline-radius: 25px;
 }
 
-#connexion-btn {
+#connexionBtn {
     cursor: pointer;
 }
 
-.active-btn {
+#inscriptionBtn {
+    cursor: pointer;
+}
+
+.activeBtn {
     font-weight: bold;
-}
-
-#inscription-btn {
-    cursor: pointer;
 }
 
 .primary-btn {
@@ -61,21 +64,30 @@ body {
     border-radius: 25px;
     color: #ffffff;
     background-image: linear-gradient(to right, #FCC682, #FF7C23);
-    margin-top: 80px;
+    margin-top: 115px;
 }
 
-.loginlbl {
+.displayNone {
+    display: none;
+}
+
+.label {
     display: block;
     font-size: 18px;
-    padding-top: 5px;
+    margin: 20px 0 8px 0;
 }
 
-.passwordlbl {
-    display: block;
-    font-size: 18px;
-    padding-top: 5px;
+#formLogin {
+    margin-top: 30px;
 }
 
-.form-login {
+#formInscription {
+    margin-top: 30px;
+}
 
+#formInscription .label {
+    margin: 13px 0 8px;
+}
+#formInscription .primary-btn {
+    margin-top: 34px;
 }

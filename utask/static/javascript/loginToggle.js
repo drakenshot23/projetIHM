@@ -1,28 +1,16 @@
-let connexionBtn = document.getElementById('connexion-btn');
-let inscriptionBtn = document.getElementById('inscription-btn');
-let connexionForm = "<form action=\"/login\" method=\"post\">\n" +
-    "                {% csrf_token %}\n" +
-    "                <label for=\"email\" class=\"loginlbl\">Email</label><br />\n" +
-    "                <input type=\"text\" class=\"round-input\" placeholder=\"exemple@mail.com\"><br />\n" +
-    "                <label for=\"password\" class=\"passwordlbl\">Mot de passe</label><br />\n" +
-    "                <input type=\"text\" class=\"round-input\" placeholder=\"********\"><br />\n" +
-    "                <input type=\"submit\" class=\"primary-btn\" value=\"Connexion\">\n" +
-    "            </form>";
-let inscriptionForm = "<form action=\"/inscription\" method=\"post\">\n" +
-    "                {% csrf_token %}\n" +
-    "                <label for=\"email\" class=\"loginlbl\">Email</label><br />\n" +
-    "                <input type=\"text\" class=\"round-input\" placeholder=\"exemple@mail.com\"><br />\n" +
-    "                <label for=\"password\" class=\"passwordlbl\">Mot de passe</label><br />\n" +
-    "                <input type=\"text\" class=\"round-input\" placeholder=\"********\"><br />\n" +
-    "<label for=\"\"></label>\n" +
-    "                <input type=\"submit\" class=\"primary-btn\" value=\"Connexion\">\n" +
-    "            </form>";
+$('#connexionBtn').click(function () {
+    $('#formLogin').removeClass('displayNone');
+    $('#formInscription').addClass('displayNone');
 
-
-connexionBtn.addEventListener('click', function () {
-    alert('connexion');
+    $('#connexionBtn').addClass('activeBtn');
+    $('#inscriptionBtn').removeClass('activeBtn');
 });
 
-inscriptionBtn.addEventListener('click', function () {
-    alert('inscription');
+$('#inscriptionBtn').click(function () {
+    $('#formInscription').removeClass('displayNone');
+    $('#formLogin').addClass('displayNone');
+
+    $('#inscriptionBtn').addClass('activeBtn');
+    $('#connexionBtn').removeClass('activeBtn');
+
 });
