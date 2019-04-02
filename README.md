@@ -26,6 +26,10 @@ source .venv/bin/activate
 ```python
 DATABASES = {     'default': {         'ENGINE': 'django.db.backends.postgresql',         'NAME': 'utaskdb',         'USER': '',         'PASSWORD': '',         'HOST': '127.0.0.1',         'PORT': '5432',     } }
 ```
+- Installer django et les autres dependances
+```bash
+pip install -r requirements.txt
+```
 - Lancer les migrations
 ```bash
 python manage.py migrate

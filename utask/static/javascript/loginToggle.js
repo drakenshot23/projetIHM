@@ -8,13 +8,21 @@ let connexionForm = "<form action=\"/login\" method=\"post\">\n" +
     "                <input type=\"text\" class=\"round-input\" placeholder=\"********\"><br />\n" +
     "                <input type=\"submit\" class=\"primary-btn\" value=\"Connexion\">\n" +
     "            </form>";
-let
+let inscriptionForm = "<form action=\"/inscription\" method=\"post\">\n" +
+    "                {% csrf_token %}\n" +
+    "                <label for=\"email\" class=\"loginlbl\">Email</label><br />\n" +
+    "                <input type=\"text\" class=\"round-input\" placeholder=\"exemple@mail.com\"><br />\n" +
+    "                <label for=\"password\" class=\"passwordlbl\">Mot de passe</label><br />\n" +
+    "                <input type=\"text\" class=\"round-input\" placeholder=\"********\"><br />\n" +
+    "<label for=\"\"></label>\n" +
+    "                <input type=\"submit\" class=\"primary-btn\" value=\"Connexion\">\n" +
+    "            </form>";
 
 
 connexionBtn.addEventListener('click', function () {
-   alert('connexion');
+    alert('connexion');
 });
 
 inscriptionBtn.addEventListener('click', function () {
-   alert('inscription');
+    alert('inscription');
 });
