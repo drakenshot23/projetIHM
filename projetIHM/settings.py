@@ -65,23 +65,14 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
             ],
         },
-    },
+    }
 ]
 
 WSGI_APPLICATION = 'projetIHM.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'utaskdb',
-        'USER': 'robert',
-        'PASSWORD': 'robert',
-        'HOST': '127.0.0.1',
-        'PORT': '5432'
-    }
-}
+from projetIHM import dev
 
 # Password validation
 # https://docs.djangoproject.com/en/dev/ref/settings/#auth-password-validators

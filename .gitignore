@@ -2,4 +2,4 @@
 .vscode
 *.pyc
 .idea
-projetIHM/settings.py
+projetIHM/dev.py
