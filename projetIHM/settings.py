@@ -72,7 +72,17 @@ WSGI_APPLICATION = 'projetIHM.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
-from projetIHM import dev
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'utaskdb',
+        'USER': 'robert',
+        'PASSWORD': 'robert',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/dev/ref/settings/#auth-password-validators
