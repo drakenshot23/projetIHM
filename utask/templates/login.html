@@ -17,7 +17,7 @@
         <div class="form-login">
             <form action="/login" method="post">
                 {% csrf_token %}
-                <label for="email" class="loginlbl">Login</label><br />
+                <label for="email" class="loginlbl">Email</label><br />
                 <input type="text" class="round-input" placeholder="exemple@mail.com"><br />
                 <label for="password" class="passwordlbl">Mot de passe</label><br />
                 <input type="text" class="round-input" placeholder="********"><br />
@@ -26,4 +26,7 @@
         </div>
     </div>
 </body>
+<footer>
+    <script src="{% static 'javascript/loginToggle.js' %}"></script>
+</footer>
 </html>
