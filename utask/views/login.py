@@ -1,9 +1,10 @@
-from django.shortcuts import render
-from django.views.generic import TemplateView
+from django.contrib.auth.views import LoginView
 
 
-class LoginView(TemplateView):
-    template_name = 'login.html'
+class MyLoginView(LoginView):
+    redirect_authenticated_user = True
+    template_name = 'registration/login.html'
 
     def get(self, request, *args, **kwargs):
-        return render(request, self.template_name)
+        print('salut')
+

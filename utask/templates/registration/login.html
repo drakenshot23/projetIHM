@@ -15,24 +15,27 @@
         <span id="inscriptionBtn">Inscription</span>
     </div>
     <div id="formLogin">
-        <form action="/login" method="post">
+        {% if form.errors %}
+            <p style="text-align: center; color: red;">Votre email ou votre mot de passe sont incorrects</p>
+        {% endif %}
+        <form action="{% url 'login' %}" method="post">
             {% csrf_token %}
-            <label for="email" class="label">Email</label>
-            <input type="text" class="round-input" placeholder="exemple@mail.com"><br/>
+            <label for="username" class="label">Email</label>
+            <input type="email" name="username" class="round-input" placeholder="exemple@mail.com"><br/>
             <label for="password" class="label">Mot de passe</label>
-            <input type="text" class="round-input" placeholder="********"><br/>
+            <input type="password" name="password" class="round-input" placeholder="********"><br/>
             <input type="submit" class="primary-btn" value="Connexion">
         </form>
     </div>
     <div id="formInscription" class="displayNone">
-        <form action="/inscription" method="post">
+        <form action="/" method="post">
             {% csrf_token %}
-            <label for="email" class="label">Email</label>
-            <input type="text" class="round-input" placeholder="exemple@mail.com">
+            <label for="username" class="label">Email</label>
+            <input type="email" name="username" class="round-input" placeholder="exemple@mail.com">
             <label for="password" class="label">Mot de passe</label>
-            <input type="text" class="round-input" placeholder="********"><br/>
+            <input type="password" name="password" class="round-input" placeholder="********">
             <label for="codePromo" class="label">Code de votre promotion</label>
-            <input type="text" class="round-input" placeholder="XF43GEF"/>
+            <input type="text" name="codePromo" class="round-input" placeholder="XF43GEF"/>
             <input type="submit" class="primary-btn" value="Inscription">
         </form>
     </div>

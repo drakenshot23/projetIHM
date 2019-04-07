@@ -1,4 +1,5 @@
 body {
+    color: #333333;
     margin: 0;
     width: 100%;
     height: 100%;
@@ -8,11 +9,12 @@ body {
 }
 
 .formLogo {
-    margin: 10px auto 10px auto;
+    display: block;
+    padding-top: 10px;
+    margin: 0 auto 10px auto;
 }
 
 .card {
-    text-align: center;
     width: 410px;
     height: 525px;
     background-color: white;
@@ -31,12 +33,20 @@ body {
 }
 
 .round-input {
-    border-width: 0;
-    padding: 0px 25px 0 25px;
+    display: block;
+    padding: 0 30px 0 30px;
     border-radius: 20px;
-    box-shadow: 1px 1px 7px #b4b4b4;
+    border: 1px solid #dedede;
     width: 290px;
     height: 43px;
+}
+
+.round-input:hover {
+    box-shadow: 1px 1px 7px #b4b4b4;
+}
+
+.round-input:focus-within {
+    box-shadow: 1px 1px 7px #b4b4b4;
 }
 
 .round-input:focus {
@@ -56,15 +66,16 @@ body {
 }
 
 .primary-btn {
+    display: block;
     width: 255px;
     height: 45px;
-    text-align: center;
     border-width: 0;
     padding: 2px 10px 2px 10px;
     border-radius: 25px;
     color: #ffffff;
     background-image: linear-gradient(to right, #FCC682, #FF7C23);
-    margin-top: 115px;
+    margin: 62px auto 0 auto;
+    cursor: pointer;
 }
 
 .displayNone {
@@ -74,20 +85,31 @@ body {
 .label {
     display: block;
     font-size: 18px;
-    margin: 20px 0 8px 0;
+    margin: 20px 0 10px 57px;
 }
 
 #formLogin {
     margin-top: 30px;
 }
 
+#formLogin .round-input {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 #formInscription {
     margin-top: 30px;
 }
 
+#formInscription .round-input {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 30px 0 29px;
+}
+
 #formInscription .label {
-    margin: 13px 0 8px;
+    margin: 13px 58px 8px;
 }
 #formInscription .primary-btn {
-    margin-top: 34px;
+    margin-top: 25px;
 }

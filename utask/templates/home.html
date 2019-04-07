@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+</head>
+<body>
+    {% if user.is_authenticated %}
+        <h1>Bonjour {{ user.username }}</h1>
+        <a href="{% url 'logout' %}">Se deconnecter</a>
+    {% endif %}
+</body>
+</html>
