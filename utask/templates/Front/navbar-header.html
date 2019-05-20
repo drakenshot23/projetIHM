@@ -1,0 +1,17 @@
+<menu>
+
+    <div class="item" id="project">
+       Mes projets
+   </div>
+
+    <a href="#">
+        <div class="profil">
+            {{ user.username }}
+        </div>
+    </a>
+    <a href="{% url 'logout' %}">
+        <div class="logout">
+           Se deconnecter
+       </div>
+    </a>
+</menu>
