@@ -3,3 +3,6 @@
 *.pyc
 .idea
 projetIHM/dev.py
+./venv/
+venv/
+myenv/
