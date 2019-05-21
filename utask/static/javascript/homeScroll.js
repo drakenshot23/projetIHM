@@ -10,7 +10,20 @@ $(document).ready(function (){
 });
 
 $(window).scroll(function () {
-     
-})
+    var scroll = $(window).scrollTop();
+    if (scroll > 100){
+       $('#project').css({
+            'color':'black'
+        })
+    }
+    else{
+        $('#project').css({
+            'color':'white'
+        })
+    }
+});
+
+
+
 
 

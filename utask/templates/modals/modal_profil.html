@@ -1,0 +1,60 @@
+{% load static %}
+<div class="container_modal">
+    <div id="modal_profil" class="modal">
+        <span class="btn_close" onclick="closeModal('profil')"></span>
+        <div class="container_content">
+            <div class="flex">
+                <div>
+                    <img class="img_profil" src="{% static 'images/profil_default.jpg' %}" alt="Profil">
+                </div>
+                <div class="vertical_center">
+                    <div>
+                        <div class="container_input">
+                            <input type="text" value="{{ user.first_name }}">
+                        </div>
+                        <div class="container_input">
+                            <input type="text" value="{{ user.last_name }}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <textarea name="description" id="description" placeholder="Autres informations..."></textarea>
+            <div class="flex">
+                <div class="container-jauge">
+                    <p>Php</p>
+                    <div id="jauge_php" class="jauge" data-score="0">
+                        <span id="score_php" class="pourcentage">0%</span>
+                        <div id="jauge_full_php" class="full orange_jauge"></div>
+                    </div>
+                    <div class="control_panel">
+                        <span class="btn_more" onclick="moreSkill('php')">+</span>
+                        <span class="btn_less" onclick="lessSkill('php')">-</span>
+                    </div>
+                </div>
+                 <div class="container-jauge">
+                    <p>Css</p>
+                    <div id="jauge_css" class="jauge" data-score="0">
+                        <span id="score_css" class="pourcentage">0%</span>
+                        <div id="jauge_full_css" class="full orange_jauge"></div>
+                    </div>
+                    <div class="control_panel">
+                        <span class="btn_more" onclick="moreSkill('css')">+</span>
+                        <span class="btn_less" onclick="lessSkill('css')">-</span>
+                    </div>
+                </div>
+                 <div class="container-jauge">
+                    <p>Java</p>
+                    <div id="jauge_java" class="jauge" data-score="0">
+                        <span id="score_java" class="pourcentage">0%</span>
+                        <div id="jauge_full_java" class="full orange_jauge"></div>
+                    </div>
+                    <div class="control_panel">
+                        <span class="btn_more" onclick="moreSkill('java')">+</span>
+                        <span class="btn_less" onclick="lessSkill('java')">-</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -19,12 +19,16 @@ menu{
     margin: 0;
     top: 0;
     left: 0;
-    z-index: 1024;
+    z-index: 600;
+}
+
+.flex{
+    display: flex;
 }
 
 #page_top section{
     padding: 0 0 0 100px;
-     margin-top: 115px;
+    margin-top: 115px;
 }
 
 .logout{
