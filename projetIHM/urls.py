@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 from utask.views.board import BoardView
+from utask.views.profil import updateProfil
 from utask.views.home import HomeView
 from utask.views.signup import SignupView
 
@@ -26,4 +27,6 @@ urlpatterns = [
     path('', HomeView.as_view(), name='home'),
     path('signup/', SignupView.as_view(), name='signup'),
     path('board/', BoardView.as_view(), name='board'),
+    path('save-profil/', updateProfil, name='save-profil'),
+
 ]

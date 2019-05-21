@@ -10,3 +10,5 @@ class HomeView(TemplateView):
             return render(request, self.template_name)
         else:
             return redirect('/accounts/login/')
+
+
