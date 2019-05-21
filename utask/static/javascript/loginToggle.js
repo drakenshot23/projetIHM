@@ -1,17 +1,21 @@
-// signupError = document.getElementsByClassName('error');
+connexionBtn = document.getElementById('connexionBtn');
+inscriptionBtn = document.getElementById('inscriptionBtn');
+formLogin = document.getElementById('formLogin');
+formInscription = document.getElementById('formInscription');
 
-$('#connexionBtn').click(function () {
-    $('#formLogin').removeClass('displayNone');
-    $('#formInscription').addClass('displayNone');
+connexionBtn.addEventListener('click', function () {
+    formLogin.classList.remove('displayNone');
+    formInscription.classList.add('displayNone');
 
-    $('#connexionBtn').addClass('activeBtn');
-    $('#inscriptionBtn').removeClass('activeBtn');
+    connexionBtn.classList.add('activeBtn');
+    inscriptionBtn.classList.remove('activeBtn');
+
 });
 
-$('#inscriptionBtn').click(function () {
-    $('#formInscription').removeClass('displayNone');
-    $('#formLogin').addClass('displayNone');
+inscriptionBtn.addEventListener('click', function () {
+    formInscription.classList.remove('displayNone');
+    formLogin.classList.add('displayNone');
 
-    $('#inscriptionBtn').addClass('activeBtn');
-    $('#connexionBtn').removeClass('activeBtn');
+    inscriptionBtn.classList.add('activeBtn');
+    connexionBtn.classList.remove('activeBtn');
 });

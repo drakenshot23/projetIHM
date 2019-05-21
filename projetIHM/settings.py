@@ -77,8 +77,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'utaskdb',
-        'USER': 'cyril',
-        'PASSWORD': 'cyril',
+        'USER': 'robert',
+        'PASSWORD': 'robert',
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
