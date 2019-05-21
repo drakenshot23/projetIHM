@@ -173,3 +173,12 @@
     margin: 0px auto 0 auto;
 }
 
+@media (max-width: 710px){
+    .modal{
+        margin: 10px;
+        width: calc( 100% - 20px );
+    }
+    .container_modal{
+        top: 0;
+    }
+}
