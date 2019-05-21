@@ -1,13 +1,53 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Home Page</title>
+
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" href="{% static 'css/modals.css' %}">
+
 </head>
 <body>
-    {% if user.is_authenticated %}
-        <h1>Bonjour {{ user.username }}</h1>
-        <a href="{% url 'logout' %}">Se deconnecter</a>
-    {% endif %}
+    {% include 'Front/navbar-header.html' %}
+    <div id="background_modals">
+        {% include 'modals/modal_profil.html' %}
+    </div>
+    <div id="page_top">
+        <section>
+            <h1>Mieux gérer <span class="color_purple">tous</span> vos projets</h1>
+            <div class="container_input_search">
+                <input type="text" id="search_preson" placeholder="Rechercher une personne">
+                <i id="btn_search_person"><span class="search"></span></i>
+            </div>
+            <div class="container_info">
+                <h3>U'task</h3><p>Afin de découvrir les membres de votre promotion, vous pourrez rechercher et regarder leur profil pour ernsuite échanger avec eux !</p>
+            </div>
+
+            <div id="container_result_person">
+                <div class="card nothing" onclick="openModal('profil')">
+                    <i></i>
+                    <p>Aucun résultats trouvés</p>
+                </div>
+            </div>
+            </section>
+    </div>
+    <div id="page_bottom">
+
+
+    </div>
+
 </body>
+ <script
+            src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/jquery.color-animation/1/mainfile"></script>
+
+<script src="{% static 'javascript/homeScroll.js' %}"></script>
+<script src="{% static 'javascript/modal.js' %}"></script>
+<script src="{% static 'javascript/jaugeSkill.js' %}"></script>
 </html>
