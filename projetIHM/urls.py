@@ -17,9 +17,11 @@ from django.contrib import admin
 from django.urls import path, include
 
 from utask.views.home import HomeView
+from utask.views.signup import SignupView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('', HomeView.as_view(), name='home')
+    path('', HomeView.as_view(), name='home'),
+    path('signup/', SignupView.as_view(), name='signup')
 ]

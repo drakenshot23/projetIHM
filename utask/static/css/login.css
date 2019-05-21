@@ -3,7 +3,7 @@ body {
     margin: 0;
     width: 100%;
     height: 100%;
-    background: url("../images/simpleBG.svg") no-repeat center;
+    background: url("../images/simpleBG.svg") no-repeat center center fixed;
     overflow-y: hidden;
     font-family: "Segoe UI", Arial, SansSerif, serif;
 }
@@ -16,7 +16,7 @@ body {
 
 .card {
     width: 410px;
-    height: 525px;
+    height: 560px;
     background-color: white;
     border-radius: 10px;
     margin-top: 150px;
@@ -24,6 +24,15 @@ body {
     margin-right: auto;
     box-shadow: 1px 1px 5px #b4b4b4;
 }
+
+.error {
+    text-align: center;
+    font-size: 15px;
+    color: red;
+    max-width: 390px;
+    margin: 0 auto 0 auto;
+}
+
 
 .switch-buttons {
     display: flex;
@@ -112,4 +121,28 @@ body {
 }
 #formInscription .primary-btn {
     margin-top: 25px;
+}
+
+@media screen and (max-width: 640px) {
+    body {
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    .card {
+        margin-top: 50px;
+        width: 350px;
+        height: 565px;
+    }
+
+    .label {
+        margin-left: 25px;
+    }
+
+    .round-input {
+        width: 265px;
+    }
+
+    #formInscription .label {
+        margin-left: 25px;
+    }
 }

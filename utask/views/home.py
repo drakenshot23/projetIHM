@@ -1,9 +1,5 @@
-from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
-from django.urls import reverse
 from django.views.generic import TemplateView
-
-from utask.views.login import MyLoginView
 
 
 class HomeView(TemplateView):

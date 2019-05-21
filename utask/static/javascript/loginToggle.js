@@ -1,3 +1,5 @@
+// signupError = document.getElementsByClassName('error');
+
 $('#connexionBtn').click(function () {
     $('#formLogin').removeClass('displayNone');
     $('#formInscription').addClass('displayNone');
@@ -12,5 +14,4 @@ $('#inscriptionBtn').click(function () {
 
     $('#inscriptionBtn').addClass('activeBtn');
     $('#connexionBtn').removeClass('activeBtn');
-
 });
