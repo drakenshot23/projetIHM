@@ -52,7 +52,7 @@ menu{
     margin-top: 115px;
 }
 
-.logout{
+#logout{
     border: 1px solid white;
     background-color: rgba(255,255,255,0.3);
     padding: 6px 20px;
@@ -95,7 +95,8 @@ menu a:hover{
 #page_bottom{
     width: 100%;
     height: 92vh;
-    background-color: #5b80b2;
+    background: url("../images/background-bottom-ihm.PNG") no-repeat 0 100%;
+    background-size: 65% auto;
 }
 
 #page_top{
@@ -103,7 +104,7 @@ menu a:hover{
     height: 92vh;
     padding: 75px 0 0 0 ;
     background: url("../images/background-top-ihm.PNG") no-repeat 100% 0;
-    background-size: 40% auto;
+    background-size: 45% auto;
     color: #707070;
 }
 
@@ -209,4 +210,13 @@ menu a:hover{
 #container_result_person .card p {
     max-width: 130px;
     margin: 0 auto;
+}
+
+
+/* RESPONSIVE WEB */
+
+@media (max-width: 1080px){
+    #page_top{
+        background: url("../images/background-top-ihm.PNG") no-repeat 100% 0;
+    }
 }
