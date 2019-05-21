@@ -1,15 +1,22 @@
+{% load static %}
 <menu>
-
     <div class="item" id="project">
-       Mes projets
+        <p>
+            Mes projets
+        </p>
    </div>
 
-    <a href="#">
-        <div class="profil">
-            {{ user.username }}
-            {{ user.last_name }}
-        </div>
-    </a>
+    <div class="item" id="profil" onclick="openModal('profil')">
+        <p>
+            {% if user.first_name %}
+                {{ user.first_name }} {{ user.last_name }}
+            {% else %}
+                {{ user.username }}
+            {% endif %}
+        </p>
+        <img src="{% static 'images/profil_default.jpg' %}" alt="Photo profil">
+    </div>
+
     <a href="{% url 'logout' %}">
         <div class="logout">
            Se deconnecter

@@ -126,6 +126,7 @@
     font-family: "Segoe UI";
     border-radius: 5px;
     padding: 5px;
+    margin-top: 10px;
 }
 
 #modal_profil .img_profil{
@@ -134,7 +135,7 @@
 }
 
 #modal_profil .flex{
-    margin-bottom: 25px;
+    margin: 0 auto 0 auto;
 }
 
 
@@ -166,5 +167,9 @@
 
 #modal_profil .container_input input:focus{
     border: none;
+}
+
+#modal_profil .primary-btn{
+    margin: 0px auto 0 auto;
 }
 
