@@ -66,11 +66,12 @@ function getCookie(name) {
     return cookieValue;
 }
 
+
 $("#btn-create").click(function () {
     var list = {
         "test": "project"
     };
-    console.log(csrf_token);
+    var csrf_token = getCookie('csrftoken');
     $.ajax({
         type: "POST",
         headers: {"X-CSRFToken": csrf_token},

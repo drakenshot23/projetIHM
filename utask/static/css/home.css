@@ -53,7 +53,7 @@ menu{
 }
 
 #page_bottom section{
-    padding: 21px 0 0 100px;
+    padding: 21px 100px 0 100px;
     margin-top: 115px;
 }
 
@@ -225,6 +225,8 @@ menu a:hover{
 #container_project{
     display: flex;
     margin-top: 65px;
+    overflow-x: scroll;
+    padding:25px;
 }
 
 .card-project{
@@ -235,6 +237,8 @@ menu a:hover{
     border-radius: 15px;
     text-align: center;
     padding: 10px;
+    margin: 0 10px 10px;
+    min-width: 190px;
 }
 
 .card-project img{
