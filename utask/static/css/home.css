@@ -6,7 +6,6 @@
 
 body{
     margin: 0;
-    font-family: "Segoe UI";
 }
 
 menu{
@@ -52,6 +51,7 @@ menu{
     margin-top: 115px;
 }
 
+<<<<<<< HEAD
 #page_bottom section{
     padding: 21px 0 0 100px;
     margin-top: 115px;
@@ -64,6 +64,8 @@ menu{
     border-radius:5px;
 }
 
+=======
+>>>>>>> be2d10d5af601bf3aa6d6c73807be08cf402886b
 menu a{
     display: block;
     text-align: center;

@@ -10,7 +10,7 @@
 </head>
 <body>
 <div class="card">
-    <img src="{% static 'images/logo.png' %}" alt="logo utask" width="100px" class="formLogo" height="100px">
+    <img src="{% static 'images/withoutCircleAndCheck.png' %}" alt="logo utask" width="100px" class="formLogo" height="100px">
     <div class="switch-buttons">
         <span id="connexionBtn" class="activeBtn">Connexion</span>
         <span id="inscriptionBtn">Inscription</span>
@@ -24,6 +24,9 @@
         {% endif %}
         {% if signup_error %}
             <p class="error">Une erreur est survenue veuillez vous inscrire de nouveau!</p>
+        {% endif %}
+        {% if invalid_code_promo %}
+            <p class="error">Le code de la promotion est invalide!</p>
         {% endif %}
         <form action="{% url 'login' %}" method="post">
             {% csrf_token %}
