@@ -18,7 +18,7 @@
         <section>
             <h1>Mieux gérer <span class="color_purple">tous</span> vos projets</h1>
             <div class="container_input_search">
-                <input type="text" id="search_preson" placeholder="Rechercher une personne">
+                <input type="text" id="search_preson" placeholder="Rechercher une personne">{% csrf_token %}
                 <i id="btn_search_person"><span class="search"></span></i>
             </div>
             <div class="container_info">
