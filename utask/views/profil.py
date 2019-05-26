@@ -23,3 +23,5 @@ def updateProfil(request):
 
     return redirect('home')
 
+
+
