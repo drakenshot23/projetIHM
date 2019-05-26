@@ -22,12 +22,15 @@ class SignupView(View):
                     "already_exist": True
                 }
                 return render(request, self.template_name, context=response)
-            if code_promo == '' and not CodePromo.objects.filter(code=code_promo).exists():
+            if code_promo == '':
                 response = {
                     "invalid_code_promo": True
                 }
                 return render(request, self.template_name, context=response)
-            user = User.objects.create(username=username, email=username, raw_password=raw_password)
+            else:
+                code_promo = CodePromo.objects.get(code=code_promo)
+            user = User.objects.create(username=username, email=username)
+            user.set_password(raw_password)
             profile = Profile.objects.create(user=user, codePromo=code_promo)
             login(request, user)
             return redirect('home')
