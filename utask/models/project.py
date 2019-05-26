@@ -21,6 +21,27 @@ class TaskTag(models.Model):
         return self.name
 
 
+class Project(models.Model):
+    creator = models.ForeignKey(Profile, related_name='projects', on_delete=models.CASCADE)
+    name = models.CharField(max_length=100)
+    description = models.TextField()
+    startDate = models.DateField(default=datetime.date.today())
+    endDate = models.DateField()
+    image = models.FileField(upload_to='projectImages/')
+    members = models.ManyToManyField(Profile)
+
+    def __str__(self):
+        return self.name
+
+
+class TaskList(models.Model):
+    name = models.CharField(max_length=100)
+    project = models.ForeignKey(Project, related_name='takLists', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name
+
+
 class Task(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
@@ -30,28 +51,7 @@ class Task(models.Model):
     endDate = models.DateTimeField()
     status = models.CharField(choices=TASK_STATUS, max_length=11)
     madeBy = models.ForeignKey(Profile, related_name='tasks', on_delete=models.CASCADE)
+    taskList = models.ForeignKey(TaskList, related_name='tasks', on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title
-
-
-class TaskList(models.Model):
-    name = models.CharField(max_length=100)
-    tasks = models.ForeignKey(Task, related_name='takLists', on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.name
-
-
-class Project(models.Model):
-    creator = models.ForeignKey(Profile, related_name='projects', on_delete=models.CASCADE)
-    name = models.CharField(max_length=100)
-    description = models.TextField()
-    startDate = models.DateField(default=datetime.date.today())
-    endDate = models.DateField()
-    image = models.FileField(upload_to='projectImages/')
-    taskList = models.ForeignKey(TaskList, related_name='projects', on_delete=models.CASCADE)
-    members = models.ManyToManyField(Profile)
-
-    def __str__(self):
-        return self.name
