@@ -47,8 +47,13 @@ menu{
     background-image: linear-gradient(to right, #fcb17c, #ff6c24);
 }
 
-#page_top section{
+#page_top section {
     padding: 0 0 0 100px;
+    margin-top: 115px;
+}
+
+#page_bottom section{
+    padding: 21px 0 0 100px;
     margin-top: 115px;
 }
 
@@ -111,6 +116,10 @@ menu a:hover{
 #page_top section h1{
     font-weight: normal;
     font-size: 36px;
+}
+
+#page_bottom section h2{
+    margin-bottom: 0 !important;
 }
 
 .container_input_search{
@@ -194,7 +203,7 @@ menu a:hover{
     width: 210px;
     height: 300px;
     border-radius: 8px;
-    margin: 15px 15px 15px 0;
+    margin: 0 15px 0 0;
     color: #D7D7D7;
     text-align: center;
 }
@@ -210,6 +219,67 @@ menu a:hover{
 #container_result_person .card p {
     max-width: 130px;
     margin: 0 auto;
+}
+
+#container_project{
+    display: flex;
+    margin-top: 65px;
+}
+
+.card-project{
+    width: 190px;
+    height: 280px;
+    display: block;
+    box-shadow: 0 0 12px #cccccc;
+    border-radius: 15px;
+    text-align: center;
+    padding: 10px;
+}
+
+.card-project img{
+    margin-top: 20px;
+}
+
+.card-project .title{
+    font-weight: bold;
+    font-size: 18px;
+    color: #6B6B6B;
+}
+
+.card-project .description{
+    font-size: 18px;
+    color:#B0B0B0;
+}
+
+#btn-create{
+    background-image: linear-gradient(to right, #D0589C, #9D5ED3);
+    max-width: 230px;
+    height: 39px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 25px;
+    text-decoration: none;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+#btn-create:hover{
+    background-image: linear-gradient(to right, #d24394, #8e3dd4);
+}
+
+#btn-create i{
+    display: block;
+    width: 35px;
+    height: 35px;
+    background: url("../images/more.svg") no-repeat center;
+    background-size: 35px 35px;
+    font-size: 28px;
+    margin: 2px;
+}
+
+#btn-create p{
+    color: white;
+    margin: 7px 0 0 50px;
 }
 
 
@@ -237,6 +307,11 @@ menu a:hover{
         margin: 50px auto;
         text-align: center;
     }
+    #page_bottom section{
+        padding: 21px 25px 0 25px;
+        margin: 50px auto;
+        text-align: center;
+    }
     .container_input_search{
         margin: 0 auto;
     }
@@ -250,10 +325,13 @@ menu a:hover{
     #profil p{
         display: none;
     }
+    #container_result_person{
+        margin-top:30px ;
+    }
 }
 
 @media (max-width: 375px){
-    #page_top section{
+    #page_top section, #page_bottom section{
         margin: 0 auto;
     }
     #page_top section h1{

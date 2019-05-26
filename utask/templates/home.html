@@ -33,11 +33,23 @@
                     <p>Aucun résultats trouvés</p>
                 </div>
             </div>
-            </section>
+        </section>
     </div>
     <div id="page_bottom">
-
-
+        <section>
+            <h2>Mes projets</h2>
+            <div class="container_info">
+                <h3>U'task</h3><p>Créer, gérer, hiérarchiser à 100% vos projets afin d'optimiser vos rendus.</p>
+            </div>
+            <div id="btn-create"><p>Nouveau projet</p><i></i></div>
+             <div id="container_project">
+                <div class="card-project">
+                    <img src="{% static 'images/img-project-default.svg' %}" alt="Photo du projet">
+                    <p class="title">Exemple de projet</p>
+                    <p class="description">Description du projet, on n'y met ce que l'on veut.</p>
+                </div>
+            </div>
+        </section>
     </div>
 
 </body>
@@ -50,4 +62,14 @@
 <script src="{% static 'javascript/homeScroll.js' %}"></script>
 <script src="{% static 'javascript/modal.js' %}"></script>
 <script src="{% static 'javascript/jaugeSkill.js' %}"></script>
+<script>
+    $(document).ready(function (){
+        var data = {{ data | safe }};
+        for (var obj in data) {
+            console.log(data[obj].skill)
+        }
+
+
+    });
+</script>
 </html>

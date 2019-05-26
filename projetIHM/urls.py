@@ -28,5 +28,4 @@ urlpatterns = [
     path('signup/', SignupView.as_view(), name='signup'),
     path('board/', BoardView.as_view(), name='board'),
     path('save-profil/', updateProfil, name='save-profil'),
-
 ]

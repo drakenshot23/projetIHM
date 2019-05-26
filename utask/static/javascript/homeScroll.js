@@ -50,6 +50,24 @@ $(window).scroll(function () {
      }
 });
 
+$("#btn-create").click(function (){
+    var list = {
+        "test":"project"
+    };
+    $.ajax({
+       type: "POST",
+       url: "/ajax-create-project",
+       dataType: "json",
+       traditional: true,
+       data: {'list': JSON.stringify(list)},
+       success: function(data) {
+           console.log(data["HTTPRESPONSE"]);
+       }
+    });
+});
+
+
+
 
 
 
