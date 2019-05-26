@@ -25,9 +25,9 @@ class Project(models.Model):
     creator = models.ForeignKey(Profile, related_name='projects', on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     description = models.TextField()
-    startDate = models.DateField(default=datetime.date.today())
-    endDate = models.DateField()
-    image = models.FileField(upload_to='projectImages/')
+    startDate = models.DateField(default=datetime.date.today(), null=True)
+    endDate = models.DateField(null=True)
+    image = models.FileField(upload_to='projectImages/', null=True)
     members = models.ManyToManyField(Profile)
 
     def __str__(self):

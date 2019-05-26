@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from utask.views.board import BoardView
+from utask.views.board import BoardView, create_project
 from utask.views.profil import updateProfil
 from utask.views.home import HomeView
 from utask.views.signup import SignupView
@@ -28,4 +28,5 @@ urlpatterns = [
     path('signup/', SignupView.as_view(), name='signup'),
     path('board/', BoardView.as_view(), name='board'),
     path('save-profil/', updateProfil, name='save-profil'),
+    path('ajax_create_project/', create_project, name='create_project')
 ]

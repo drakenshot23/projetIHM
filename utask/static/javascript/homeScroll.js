@@ -56,12 +56,12 @@ $("#btn-create").click(function (){
     };
     $.ajax({
        type: "POST",
-       url: "/ajax-create-project",
+       url: "ajax_create_project",
        dataType: "json",
        traditional: true,
        data: {'list': JSON.stringify(list)},
        success: function(data) {
-           console.log(data["HTTPRESPONSE"]);
+           console.log(data['project']);
        }
     });
 });
