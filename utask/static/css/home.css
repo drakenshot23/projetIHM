@@ -333,6 +333,9 @@ menu a:hover{
     #container_result_person{
         margin-top:30px ;
     }
+    #page_bottom{
+        background: white;
+    }
 }
 
 @media (max-width: 375px){
@@ -344,11 +347,25 @@ menu a:hover{
     }
 }
 
+@media (max-width: 370px){
+    .container_info{
+        display: none;
+    }
+    #btn-create{
+        margin: 10px auto 0 auto;
+    }
+}
+
+
 @media (max-width: 350px){
     #profil p{
         display: none;
     }
     #logout{
         padding: 6px 6px;
+    }
+
+    #container_project{
+         margin-top: 20px;
     }
 }

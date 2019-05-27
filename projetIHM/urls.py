@@ -13,10 +13,11 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path, include
 
-from utask.views.board import BoardView, create_project
+from utask.views.board import BoardView, create_project, delete_all_project
 from utask.views.profil import updateProfil
 from utask.views.home import HomeView
 from utask.views.signup import SignupView
@@ -26,7 +27,8 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('', HomeView.as_view(), name='home'),
     path('signup/', SignupView.as_view(), name='signup'),
-    path('board/', BoardView.as_view(), name='board'),
+    url(r'board/(?P<project_id>\d+)/$', BoardView.as_view(), name='board'),
     path('save-profil/', updateProfil, name='save-profil'),
-    path('ajax_create_project/', create_project, name='create_project')
+    path('delete_all_project/', delete_all_project, name = 'delete_all-project'),
+    path('ajax_create_project/', create_project, name='create_project'),
 ]

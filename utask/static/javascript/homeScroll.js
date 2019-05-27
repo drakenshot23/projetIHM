@@ -81,7 +81,7 @@ $("#btn-create").click(function () {
         crossDomain: true,
         data: {'list': JSON.stringify(list)},
         success: function (data) {
-            console.log(data['project']);
+            $('#container_project').append(data['project'].html);
         }
     });
 });

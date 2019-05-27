@@ -47,11 +47,13 @@
                     <p class="description">Description du projet, on n'y met ce que l'on veut.</p>
                 </div>
                  {% for project in projects %}
-                     <div class="card-project">
-                        <img src="{% static 'images/img-project-default.svg' %}" alt="Photo du projet">
-                        <p class="title">{{ project.name }}</p>
-                        <p class="description">{{ project.description }}</p>
-                    </div>
+                     <a href="{% url 'board' project.id %}">
+                         <div class="card-project">
+                            <img src="{% static 'images/img-project-default.svg' %}" alt="Photo du projet">
+                            <p class="title">{{ project.name }}</p>
+                            <p class="description">{{ project.description }}</p>
+                        </div>
+                     </a>
                  {% endfor %}
 
             </div>
