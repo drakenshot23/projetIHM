@@ -34,24 +34,36 @@
     <button id="add-list-btn">Nouvelle liste <i class="fas fa-plus-circle"></i></button>
     <button id="add-member-btn">Ajouter un membre <i class="fas fa-address-book"></i></button>
 </div>
-<div class="list">
-    <div class="head-list">
-        <input type="text" name="list-title" spellcheck="false" value="Titre liste" class="list-title">
-    </div>
-    <div class="body-list">
-        <ul id="tasks">
-            <li class="ui-state-default">Item 1 and some other stuff</li>
-            <li class="ui-state-default">Item 2</li>
-            <li class="ui-state-default">Item 3</li>
-            <li class="ui-state-default">Item 4</li>
-            <li class="ui-state-default">Item 5</li>
-        </ul>
+<div class="list-wrapper" id="lists">
+    <div class="list-content" id="tasks">
+        <div class="list-header">
+            <textarea maxlength="512" aria-label="Doing" name="list-title" spellcheck="false" class="list-header-name">Doing</textarea>
+        </div>
+        <div id="cards" class="list-cards">
+            <a href="#" class="list-card">
+                <div class="list-card-details">
+                    <span class="list-card-title">Test 1</span>
+                    <div class="list-card-members">
+
+                    </div>
+                </div>
+            </a>
+            <a href="#" class="list-card">
+                <div class="list-card-details">
+                    <span class="list-card-title">Test 2</span>
+                    <div class="list-card-members">
+
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="list-footer">
+
+        </div>
     </div>
 </div>
 <script>
-    let sortable = new Sortable(tasks, {
-        ghostClass: 'ghost',
-        delay: 150,
+    let sortable = new Sortable(cards, {
         animation: 150,
     });
 </script>
