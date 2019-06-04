@@ -31,7 +31,8 @@ class SignupView(View):
                 code_promo = CodePromo.objects.get(code=code_promo)
             user = User.objects.create(username=username, email=username)
             user.set_password(raw_password)
-            profile = Profile.objects.create(user=user, codePromo=code_promo)
+            user.save()
+            Profile.objects.create(user=user, codePromo=code_promo, skills=code_promo.matieres)
             login(request, user)
             return redirect('home')
         else:

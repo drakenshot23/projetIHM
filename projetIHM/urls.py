@@ -17,18 +17,26 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path, include
 
-from utask.views.board import BoardView, create_project, delete_all_project
+from utask.views.board import BoardView, create_project, delete_all_project, BoardAPIViewSet
 from utask.views.profil import updateProfil
 from utask.views.home import HomeView
 from utask.views.signup import SignupView
+from rest_framework.routers import DefaultRouter
+
+router = DefaultRouter()
+
+
+router.register(r'boardAPI', BoardAPIViewSet, base_name='boardAPI')
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    url(r'^api/', include(router.urls)),
     path('accounts/', include('django.contrib.auth.urls')),
     path('', HomeView.as_view(), name='home'),
     path('signup/', SignupView.as_view(), name='signup'),
     url(r'board/(?P<project_id>\d+)/$', BoardView.as_view(), name='board'),
     path('save-profil/', updateProfil, name='save-profil'),
-    path('delete_all_project/', delete_all_project, name = 'delete_all-project'),
+    path('delete_all_project/', delete_all_project, name='delete_all-project'),
     path('ajax_create_project/', create_project, name='create_project'),
 ]

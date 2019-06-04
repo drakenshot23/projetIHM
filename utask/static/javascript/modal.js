@@ -3,7 +3,7 @@ function openModal(name){
     let element = 'modal_'+name;
     $('#background_modals').css({
         'opacity':'1',
-        'visibility':'visible'
+        'visibility':'visible Nouvelle'
     });
     $('#'+element).css({
         'display':'block'

@@ -93,14 +93,21 @@ input:focus {
     opacity: 0.4;
 }
 
-.list-wrapper {
+#list-wrapper {
+    display: flex;
+    flex-direction: row;
     margin: 10px 10px auto 10px;
-    max-width: 310px;
+    width: 100%;
+    overflow-x: scroll;
+}
+
+.cards-wrapper {
+    border-radius: 15px;
+    box-shadow: 0 0 5px 2px rgba(167, 95, 158, 0.25);
 }
 
 .list-content {
-    background-color: #dfe1e6;
-    border-radius: 3px;
+    margin: 10px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -120,25 +127,27 @@ input:focus {
 .list-header textarea {
     resize: none;
     border: none;
-    border-radius: 10px;
+    border-radius: 25px;
     padding: 5px;
     background-color: white;
     display: block;
     width: 280px;
     margin: auto;
     outline: unset;
+    box-shadow: 0 0 5px 2px rgba(167, 95, 158, 0.25);
+    text-align: center;
 }
 
 .list-cards {
     margin: 5px;
     overflow-y: auto;
     overflow-x: hidden;
-
+    min-height: 50px;
 }
 
 .list-card {
-    background-color: #fff;
-    border-radius: 3px;
+    background-color: #e8e8e8;
+    border-radius: 10px;
     box-shadow: 0 1px 0 rgba(9, 30, 66, .25);
     cursor: pointer;
     display: block;
@@ -148,6 +157,12 @@ input:focus {
     position: relative;
     text-decoration: none;
     z-index: 0;
+
+}
+
+.list-cards {
+    background-color: white;
+    padding: 10px;
 }
 
 .list-card-details {
@@ -163,3 +178,18 @@ input:focus {
     color: #172b4d;
 }
 
+.list-footer {
+    text-align: center;
+}
+
+.add-task-btn {
+    cursor: pointer;
+    color: #848484;
+    margin: 5px;
+}
+
+@media screen and (max-width: 640px) {
+    .list-cards {
+        overflow-x: scroll;
+    }
+}
