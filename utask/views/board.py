@@ -3,9 +3,10 @@ from django.shortcuts import render, redirect
 from django.views import View
 from rest_framework import viewsets, status
 from rest_framework.decorators import action
+from rest_framework.generics import get_object_or_404
 from rest_framework.response import Response
 
-from utask.models import Project, Profile, TaskList
+from utask.models import Project, Profile, TaskList, Task
 from utask.serializers.board import TaskListSerializer, TaskSerializer
 
 
@@ -84,8 +85,7 @@ class BoardAPIViewSet(viewsets.ModelViewSet):
     def add_task_list(self, request, *args, **kwargs):
         task_list = TaskListSerializer(data=request.data)
         if task_list.is_valid():
-            pass
-            # task_list.save()
+            task_list.save()
         else:
             response = {
                 "message": 'Invalid request',
@@ -95,18 +95,21 @@ class BoardAPIViewSet(viewsets.ModelViewSet):
             return Response(response, status=status.HTTP_200_OK)
 
         response = {
-            "new_list": 20,
-            "name": "nouvelle liste ok",
+            "new_list": task_list.data['id'],
+            "name": task_list.data['name'],
             "message": '',
             "success": True
         }
 
         return JsonResponse(response)
 
-    @action(methods=['POST'], detail=True)
+    @action(methods=['POST'], detail=False)
     def add_new_task(self, request, *args, **kwargs):
+        profile = Profile.objects.get(user=request.user)
+        request.data['madeBy'] = profile.id
         task = TaskSerializer(data=request.data)
-        if task.is_valid():
+        print(request.data)
+        if task.is_valid(raise_exception=True):
             task.save()
         else:
             response = {
@@ -118,6 +121,22 @@ class BoardAPIViewSet(viewsets.ModelViewSet):
 
         response = {
             "new_task": task.data['id'],
+            "task_list": task.data['taskList'],
+            "title": task.data['title'],
+            "message": '',
+            "success": True
+        }
+
+        return Response(response, status=status.HTTP_200_OK)
+
+    @action(methods=['POST'], detail=True)
+    def change_task_to_other_list(self, request, *args, **kwargs):
+        task = get_object_or_404(Task, pk=self.kwargs['pk'])
+        new_task_list = get_object_or_404(TaskList, pk=request.data['newList'])
+        task.taskList = new_task_list
+        task.save(update_fields=['taskList'])
+
+        response = {
             "message": '',
             "success": True
         }

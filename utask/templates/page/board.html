@@ -43,9 +43,9 @@
                 <textarea maxlength="256" id="list_title_{{ list.id }}" data-list="{{ list.id }}" aria-label="list name" name="list-title" spellcheck="false" class="list-header-name">{{ list.name }}</textarea>
             </div>
             <div class="cards-wrapper">
-                <div id="tasks_{{ list.id }}" class="list-cards">
+                <div id="tasks_{{ list.id }}" class="list-cards" data-list="{{ list.id }}">
                     {% for task in list.tasks.all %}
-                        <a href="#" class="list-card">
+                        <a class="list-card" data-task="{{ task.id }}">
                             <div class="list-card-details">
                                 <span class="list-card-title">{{ task.title }}</span>
                                 <div class="list-card-members">
@@ -56,28 +56,14 @@
                     {% endfor %}
                 </div>
                 <div class="list-footer">
-                    <div class="add-task-btn">Nouvelle tâche <i class="fas fa-plus-circle"></i></div>
+                    <div class="add-task-btn" data-list="{{ list.id }}">Nouvelle tâche <i class="fas fa-plus-circle"></i></div>
                 </div>
             </div>
         </div>
     {% endfor %}
 </div>
 <script>
-    lists = document.querySelectorAll('div[id^="lists_"]');
-    task_list = document.querySelectorAll('div[id^="tasks_"]');
-    for (let i = 0; i < lists.length; i++) {
-        let list_sortable = new Sortable(lists[i], {
-            group: 'lists',
-            animation: 150,
-            direction: 'horizontal'
-        });
-    }
-    for (let i = 0; i < task_list.length; i++) {
-        let tasks_sortable = new Sortable(task_list[i], {
-            group: 'tasks',
-            animation: 150
-        });
-    }
+
 </script>
 </body>
 </html>
