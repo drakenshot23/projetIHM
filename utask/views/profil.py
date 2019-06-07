@@ -1,27 +1,42 @@
+from pprint import pprint
+
 from django.shortcuts import redirect, render
 from utask.models import Profile
-from utask.models import CodePromo
-import json
+from django.http import JsonResponse, HttpResponse
 
 
 def updateProfil(request):
     user = request.user
+    skill = request.POST.get('skills')
+    profile = Profile.objects.get(user_id=user.id)
+    pprint(skill)
+    profile.skills= skill
+    profile.save()
 
-    codeFind = CodePromo.objects.filter(code="LP-PRISM")
-
-    if not codeFind:
-        skills = json.dumps({1: "Php", 2: "Css", 3: "Javascript", 4: "Html", 5: "SQL"}, sort_keys=True)
-        code = CodePromo(code="LP-PRISM", matieres=skills)
-        code.save()
-
-    code = CodePromo.objects.get(id=1)
-    profileFind = Profile.objects.get(user_id=user.id)
-
-    if not profileFind:
-        profile = Profile(skills=code.matieres, user_id=user.id, codePromo_id=code.id)
-        profile.save()
-
-    return redirect('home')
-
+    return JsonResponse({'status': 'Updated', 'skill': skill})
+"""
+[
+    {
+        "name": "Css",
+        "score": 0
+    },
+    {
+        "name": "Php",
+        "score": 0
+    },
+    {
+        "name": "Java",
+        "score": 0
+    },
+    {
+        "name": "Html",
+        "score": 0
+    },
+    {
+        "name": "JS",
+        "score": 0
+    }
+]
+"""
 
 

@@ -6,6 +6,8 @@ from django.http import HttpResponse
 import json
 
 
+
+
 class HomeView(TemplateView):
     template_name = 'page/home.html'
 
@@ -13,9 +15,8 @@ class HomeView(TemplateView):
         if request.user.is_authenticated:
             user = request.user
             profile = Profile.objects.get(user_id=user.id)
-            data = json.dumps(profile.skills)
-            a = json.loads(data)
             projects = Project.objects.filter(creator_id=profile.id)
-            return render(request, self.template_name, {'profile': profile, 'data': a, 'projects': projects})
+            skills = json.loads(profile.skills)
+            return render(request, self.template_name, {'profile': profile, 'projects': projects, 'skills': skills})
         else:
             return redirect('/accounts/login/')

@@ -29,6 +29,6 @@ urlpatterns = [
     path('signup/', SignupView.as_view(), name='signup'),
     url(r'board/(?P<project_id>\d+)/$', BoardView.as_view(), name='board'),
     path('save-profil/', updateProfil, name='save-profil'),
-    path('delete_all_project/', delete_all_project, name = 'delete_all-project'),
+    path('delete_all_project/', delete_all_project, name='delete_all-project'),
     path('ajax_create_project/', create_project, name='create_project'),
 ]
