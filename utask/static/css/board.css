@@ -71,12 +71,13 @@ input:focus {
     /*background: linear-gradient(to left, #F7832C, #FCC07A);*/
     background: linear-gradient(to left, #2f9e28, #6bd650);
     padding: 10px 20px;
-    border-radius: 15px;
+    border-radius: 55px;
     font-size: 15px;
     border: unset;
     margin: 10px 5px 0 15px;
     color: #ffffff;
     cursor: pointer;
+    min-width: 200px;
     /*box-shadow: 2px 3px 10px 1px #828183;*/
 
 }
@@ -85,12 +86,18 @@ input:focus {
     /*background: linear-gradient(to left, #31e142, #73f556);*/
     background: linear-gradient(to left, #9462DF, #CD59A0);
     padding: 10px 20px;
-    border-radius: 15px;
+    border-radius: 55px;
     font-size: 15px;
     border: unset;
     color: #ffffff;
     cursor: pointer;
+    min-width: 200px;
     /*box-shadow: 2px 3px 10px 1px #828183;*/
+}
+
+#add-list-btn i, #add-member-btn i {
+    float: right;
+    margin: 1px -7px 0 0;
 }
 
 .ghost {
@@ -103,12 +110,17 @@ input:focus {
     margin: 10px 10px auto 10px;
     width: 100%;
     overflow-x: scroll;
-    height: 86vh;
+    height: 78vh;
+}
+
+#list-wrapper .list-content:last-child{
+    padding-right: 50px;
 }
 
 .cards-wrapper {
     border-radius: 15px;
     box-shadow: 0 0 5px 2px rgba(167, 95, 158, 0.25);
+    height: 100%;
 }
 
 .list-content {
@@ -135,8 +147,12 @@ input:focus {
     border-radius: 25px;
     padding: 5px;
     background-color: white;
+    font-family: inherit;
     display: block;
     width: 280px;
+    font-size: 17px;
+    height: 30px;
+    font-weight: bold;
     margin: auto;
     outline: unset;
     box-shadow: 0 0 5px 2px rgba(167, 95, 158, 0.25);
@@ -190,7 +206,9 @@ input:focus {
 .add-task-btn {
     cursor: pointer;
     color: #848484;
-    margin: 5px;
+    position: absolute;
+    bottom: 5px;
+    left: 80px;
 }
 
 @media screen and (max-width: 640px) {
