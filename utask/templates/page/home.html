@@ -49,29 +49,24 @@
                 <p class="title">Exemple de projet</p>
                 <p class="description">Description du projet, on n'y met ce que l'on veut.</p>
             </div>
-            {% for project in projects %}
-                <a href="{% url 'board' project.id %}">
-                    <div class="card-project">
-                        <img src="{% static 'images/img-project-default.svg' %}" alt="Photo du projet">
-                        <p class="title">{{ project.name }}</p>
-                        <p class="description">{{ project.description }}</p>
-                    </div>
-                </a>
-            {% endfor %}
-
-        </div>
-    <div class="swiper-container">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide" style="background-image:url(https://images.unsplash.com/photo-1466971060667-16467c7d04ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2043&q=80)"></div>
-      <div class="swiper-slide" style="background-image:url(https://images.unsplash.com/photo-1458413111252-87446cbff277?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1895&q=80)"></div>
-      <div class="swiper-slide" style="background-image:url(https://images.unsplash.com/photo-1478527345651-4e698a242669?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2139&q=80)"></div>
-      <div class="swiper-slide" style="background-image:url(https://images.unsplash.com/photo-1447966129673-88517d4367f0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1975&q=80)"></div>
-      <div class="swiper-slide" style="background-image:url(https://images.unsplash.com/photo-1414390579679-7d6cc7b20436?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1999&q=80"></div>
-
-    </div>
-    <!-- Add Pagination -->
-    <div class="swiper-pagination"></div>
-  </div>
+            <div id="btn-create"><p>Nouveau projet</p><i></i></div>
+             <div id="container_project">
+                <div class="card-project">
+                    <img src="{% static 'images/img-project-default.svg' %}" alt="Photo du projet">
+                    <p class="title">Exemple de projet</p>
+                    <p class="description">Description du projet, on n'y met ce que l'on veut.</p>
+                </div>
+                 {% for project in projects %}
+                     <a href="{% url 'board' project.id %}" class="no-underline">
+                         <div class="card-project">
+                            <img src="{% static 'images/img-project-default.svg' %}" alt="Photo du projet">
+                            <p class="title">{{ project.name }}</p>
+                            <p class="description">{{ project.description }}</p>
+                        </div>
+                     </a>
+                 {% endfor %}
+            </div>
+         </div>
     </section>
 </div>
 

@@ -45,7 +45,7 @@ class TaskList(models.Model):
 class Task(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
-    files = models.ForeignKey(TaskFile, related_name='tasks', on_delete=models.CASCADE)
+    files = models.ForeignKey(TaskFile, related_name='tasks', on_delete=models.CASCADE, null=True)
     tags = models.ForeignKey(TaskTag, related_name='tasks', on_delete=models.CASCADE, null=True, blank=True)
     startDate = models.DateTimeField(default=datetime.datetime.now())
     endDate = models.DateTimeField()

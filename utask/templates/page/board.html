@@ -3,12 +3,14 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>{{ projet.titre }}</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
           crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <link rel="stylesheet" href="{% static 'css/board.css' %}">
-    <script src="{% static 'javascript/Sortable.js' %}"></script>
+    <script src="{% static 'javascript/board/Sortable.js' %}"></script>
+    <script src="{% static 'javascript/board/board.js' %}"></script>
 </head>
 <body>
 <nav id="nav-bar">
@@ -18,7 +20,7 @@
                 Retour
             </div>
         </a>
-        <input type="text" value="{{ project.name }}" id="project-name" spellcheck="false">
+        <input type="text" value="{{ project.name }}" id="project-name" data-project="{{ project.id }}" spellcheck="false">
     </div>
     <div class="nav-item user-section">
         <p id="firstName">{{ user.first_name }} {{ user.last_name }}</p>
@@ -31,41 +33,40 @@
     </div>
 </nav>
 <div id="action-bar">
-    <button id="add-list-btn">Nouvelle liste <i class="fas fa-plus-circle"></i></button>
+    <button id="add-list-btn" data-project="{{ project.id }}">Nouvelle liste <i class="fas fa-plus-circle"></i></button>
     <button id="add-member-btn">Ajouter un membre <i class="fas fa-address-book"></i></button>
 </div>
-<div class="list-wrapper" id="lists">
-    <div class="list-content" id="tasks">
-        <div class="list-header">
-            <textarea maxlength="512" aria-label="Doing" name="list-title" spellcheck="false" class="list-header-name">Doing</textarea>
-        </div>
-        <div id="cards" class="list-cards">
-            <a href="#" class="list-card">
-                <div class="list-card-details">
-                    <span class="list-card-title">Test 1</span>
-                    <div class="list-card-members">
+<div id="list-wrapper">
+    {% for list in taskList %}
+        <div class="list-content" id="lists_{{ list.id }}">
+            <div class="list-header">
+                <textarea maxlength="256" id="list_title_{{ list.id }}" data-list="{{ list.id }}" aria-label="list name" name="list-title" spellcheck="false"
+                          class="list-header-name">{{ list.name }}</textarea>
+            </div>
+            <div class="cards-wrapper">
+                <div id="tasks_{{ list.id }}" class="list-cards" data-list="{{ list.id }}">
+                    {% for task in list.tasks.all %}
+                        <a class="list-card" data-task="{{ task.id }}">
+                            <div class="list-card-details">
+                                <span class="list-card-title">{{ task.title }}</span>
+                                <div class="list-card-members">
 
-                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    {% endfor %}
                 </div>
-            </a>
-            <a href="#" class="list-card">
-                <div class="list-card-details">
-                    <span class="list-card-title">Test 2</span>
-                    <div class="list-card-members">
-
-                    </div>
+                <div class="list-footer">
+                    <div class="add-task-btn" data-list="{{ list.id }}">Nouvelle tâche <i class="fas fa-plus-circle"></i></div>
                 </div>
-            </a>
+            </div>
         </div>
-        <div class="list-footer">
-
-        </div>
-    </div>
+    {% endfor %}
 </div>
-<script>
-    let sortable = new Sortable(cards, {
-        animation: 150,
-    });
-</script>
+<script
+        src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+<script src="//cdn.jsdelivr.net/jquery.color-animation/1/mainfile"></script>
 </body>
 </html>
