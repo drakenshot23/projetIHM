@@ -40,7 +40,8 @@
     {% for list in taskList %}
         <div class="list-content" id="lists_{{ list.id }}">
             <div class="list-header">
-                <textarea maxlength="256" id="list_title_{{ list.id }}" data-list="{{ list.id }}" aria-label="list name" name="list-title" spellcheck="false" class="list-header-name">{{ list.name }}</textarea>
+                <textarea maxlength="256" id="list_title_{{ list.id }}" data-list="{{ list.id }}" aria-label="list name" name="list-title" spellcheck="false"
+                          class="list-header-name">{{ list.name }}</textarea>
             </div>
             <div class="cards-wrapper">
                 <div id="tasks_{{ list.id }}" class="list-cards" data-list="{{ list.id }}">
@@ -62,8 +63,10 @@
         </div>
     {% endfor %}
 </div>
-<script>
-
-</script>
+<script
+        src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+<script src="//cdn.jsdelivr.net/jquery.color-animation/1/mainfile"></script>
 </body>
 </html>

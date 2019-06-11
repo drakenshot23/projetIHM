@@ -106,42 +106,71 @@ function addNewTaskEvent(listId) {
         "endDate": new Date(),
         "status": "En cours"
     };
-
-    fetch("http://localhost:8000/api/boardAPI/add_new_task/", {
-        method: 'POST',
+    $.ajax({
+        type: "POST",
         headers: {
             "X-CSRFToken": csrf_token,
             "Content-Type": "application/json"
         },
-        mode: 'cors',
-        cache: 'default',
-        body: JSON.stringify(data)
-    }).then((response) => {
-        return response.json();
-    }).then((data) => {
-        newTask(data['title'], data['new_task'], data['task_list']);
-        console.log(data);
+        url: "/api/boardAPI/add_new_task/",
+        dataType: "json",
+        traditional: true,
+        crossDomain: true,
+        data: JSON.stringify(data),
+        success: function (data) {
+            newTask(data['title'], data['new_task'], data['task_list']);
+        }
     });
+    // fetch("http://localhost:8000/api/boardAPI/add_new_task/", {
+    //     method: 'POST',
+    //     headers: {
+    //         "X-CSRFToken": csrf_token,
+    //         "Content-Type": "application/json"
+    //     },
+    //     mode: 'cors',
+    //     cache: 'default',
+    //     body: JSON.stringify(data)
+    // }).then((response) => {
+    //     return response.json();
+    // }).then((data) => {
+    //     newTask(data['title'], data['new_task'], data['task_list']);
+    //     console.log(data);
+    // });
 }
 
 function changeTaskToNewList(csrf_token, taskId, newList) {
     let data = {
         "newList": parseInt(newList)
     };
-    fetch("http://localhost:8000/api/boardAPI/" + taskId + "/change_task_to_other_list/", {
-        method: 'POST',
+    $.ajax({
+        type: "POST",
         headers: {
             "X-CSRFToken": csrf_token,
             "Content-Type": "application/json"
         },
-        mode: 'cors',
-        cache: 'default',
-        body: JSON.stringify(data)
-    }).then((response) => {
-        return response.json();
-    }).then((data) => {
-        console.log(data);
+        url: "/api/boardAPI/add_new_task/" + taskId + "/change_task_to_other_list/",
+        dataType: "json",
+        traditional: true,
+        crossDomain: true,
+        data: JSON.stringify(data),
+        success: function (data) {
+            console.log(data);
+        }
     });
+    // fetch("http://localhost:8000/api/boardAPI/" + taskId + "/change_task_to_other_list/", {
+    //     method: 'POST',
+    //     headers: {
+    //         "X-CSRFToken": csrf_token,
+    //         "Content-Type": "application/json"
+    //     },
+    //     mode: 'cors',
+    //     cache: 'default',
+    //     body: JSON.stringify(data)
+    // }).then((response) => {
+    //     return response.json();
+    // }).then((data) => {
+    //     console.log(data);
+    // });
 }
 
 window.addEventListener('DOMContentLoaded', (event) => {
@@ -172,20 +201,36 @@ window.addEventListener('DOMContentLoaded', (event) => {
             "name": "Nouvelle liste",
             "project": document.getElementById('add-list-btn').getAttribute('data-project')
         };
-        fetch("http://localhost:8000/api/boardAPI/add_task_list/", {
-            method: 'POST',
+        $.ajax({
+            type: "POST",
             headers: {
                 "X-CSRFToken": csrf_token,
                 "Content-Type": "application/json"
             },
-            mode: 'cors',
-            cache: 'default',
-            body: JSON.stringify(data)
-        }).then((response) => {
-            return response.json();
-        }).then((data) => {
-            document.getElementById('list-wrapper').appendChild(newList(csrf_token, data['name'], data['new_list']));
+            url: "/api/boardAPI/add_task_list/",
+            dataType: "json",
+            traditional: true,
+            crossDomain: true,
+            data: JSON.stringify(data),
+            success: function (data) {
+                document.getElementById('list-wrapper').appendChild(newList(csrf_token, data['name'], data['new_list']));
+                console.log(data);
+            }
         });
+        // fetch("http://localhost:8000/api/boardAPI/add_task_list/", {
+        //     method: 'POST',
+        //     headers: {
+        //         "X-CSRFToken": csrf_token,
+        //         "Content-Type": "application/json"
+        //     },
+        //     mode: 'cors',
+        //     cache: 'default',
+        //     body: JSON.stringify(data)
+        // }).then((response) => {
+        //     return response.json();
+        // }).then((data) => {
+        //     document.getElementById('list-wrapper').appendChild(newList(csrf_token, data['name'], data['new_list']));
+        // });
     });
 
     document.getElementById('project-name').addEventListener('focusout', () => {
@@ -193,18 +238,33 @@ window.addEventListener('DOMContentLoaded', (event) => {
             let data = {
                 "name": document.getElementById('project-name').value
             };
-            fetch("http://localhost:8000/api/boardAPI/" + document.getElementById('project-name').getAttribute('data-project') + "/update_project_title/", {
-                method: 'POST',
+            $.ajax({
+                type: "POST",
                 headers: {
                     "X-CSRFToken": csrf_token,
                     "Content-Type": "application/json"
                 },
-                mode: 'cors',
-                cache: 'default',
-                body: JSON.stringify(data)
-            }).then((response) => {
-                console.log(response);
+                url: "/api/boardAPI/" + document.getElementById('project-name').getAttribute('data-project') + "/update_project_title/",
+                dataType: "json",
+                traditional: true,
+                crossDomain: true,
+                data: JSON.stringify(data),
+                success: function (data) {
+                    console.log(data);
+                }
             });
+            // fetch("http://localhost:8000/api/boardAPI/" + document.getElementById('project-name').getAttribute('data-project') + "/update_project_title/", {
+            //     method: 'POST',
+            //     headers: {
+            //         "X-CSRFToken": csrf_token,
+            //         "Content-Type": "application/json"
+            //     },
+            //     mode: 'cors',
+            //     cache: 'default',
+            //     body: JSON.stringify(data)
+            // }).then((response) => {
+            //     console.log(response);
+            // });
         }
     });
 
