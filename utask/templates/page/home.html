@@ -43,30 +43,22 @@
             <p>Créer, gérer, hiérarchiser à 100% vos projets afin d'optimiser vos rendus.</p>
         </div>
         <div id="btn-create"><p>Nouveau projet</p><i></i></div>
-        <div id="container_project">
+         <div id="container_project">
             <div class="card-project">
                 <img src="{% static 'images/img-project-default.svg' %}" alt="Photo du projet">
                 <p class="title">Exemple de projet</p>
                 <p class="description">Description du projet, on n'y met ce que l'on veut.</p>
             </div>
-            <div id="btn-create"><p>Nouveau projet</p><i></i></div>
-             <div id="container_project">
-                <div class="card-project">
-                    <img src="{% static 'images/img-project-default.svg' %}" alt="Photo du projet">
-                    <p class="title">Exemple de projet</p>
-                    <p class="description">Description du projet, on n'y met ce que l'on veut.</p>
-                </div>
-                 {% for project in projects %}
-                     <a href="{% url 'board' project.id %}" class="no-underline">
-                         <div class="card-project">
-                            <img src="{% static 'images/img-project-default.svg' %}" alt="Photo du projet">
-                            <p class="title">{{ project.name }}</p>
-                            <p class="description">{{ project.description }}</p>
-                        </div>
-                     </a>
-                 {% endfor %}
-            </div>
-         </div>
+             {% for project in projects %}
+                 <a href="{% url 'board' project.id %}" class="no-underline">
+                     <div class="card-project">
+                        <img src="{% static 'images/img-project-default.svg' %}" alt="Photo du projet">
+                        <p class="title">{{ project.name }}</p>
+                        <p class="description">{{ project.description }}</p>
+                    </div>
+                 </a>
+             {% endfor %}
+        </div>
     </section>
 </div>
 
