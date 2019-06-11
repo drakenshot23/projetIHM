@@ -148,7 +148,7 @@ function changeTaskToNewList(csrf_token, taskId, newList) {
             "X-CSRFToken": csrf_token,
             "Content-Type": "application/json"
         },
-        url: "/api/boardAPI/add_new_task/" + taskId + "/change_task_to_other_list/",
+        url: "/api/boardAPI/" + taskId + "/change_task_to_other_list/",
         dataType: "json",
         traditional: true,
         crossDomain: true,
@@ -178,6 +178,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
     lists = document.querySelectorAll('div[id^="lists_"]');
     task_list = document.querySelectorAll('div[id^="tasks_"]');
+
     for (let i = 0; i < lists.length; i++) {
         let list_sortable = new Sortable(lists[i], {
             group: 'lists',
@@ -195,6 +196,10 @@ window.addEventListener('DOMContentLoaded', (event) => {
             }
         });
     }
+
+    $('.list-card').click(function () {
+       console.log($(this).attr('data-task'));
+    });
 
     document.getElementById('add-list-btn').addEventListener('click', () => {
         let data = {
