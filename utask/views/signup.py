@@ -1,15 +1,45 @@
-from django.contrib.auth import authenticate, login, get_user_model
-from django.contrib.auth.base_user import BaseUserManager
+from django.contrib.auth import authenticate, login, get_user_model, logout
 from django.shortcuts import redirect, render
 from django.views import View
+
+from utask.forms.login import LoginForm
 from utask.forms.registration import UserCreationForm
 from utask.models import Profile, CodePromo
+from django.contrib.auth.hashers import check_password
 from django.contrib.auth.models import User
+
+
+def logout_view(request):
+    logout(request)
+    return redirect('login')
+
+
+class LoginView(View):
+    form_class = LoginForm
+    template_name = 'registration/login.html'
+
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name)
+
+    def post(self, request, *args, **kwargs):
+        user = User.objects.get(username=request.POST['username'])
+        print(user)
+        print(user.password)
+        print(request.POST['password'])
+        print(check_password(request.POST['password'], user.password))
+        if check_password(request.POST['password'], user.password):
+            login(request, user)
+            return redirect('home')
+        else:
+            return redirect('login')
 
 
 class SignupView(View):
     form_class = UserCreationForm
     template_name = 'registration/login.html'
+
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name)
 
     def post(self, request, *args, **kwargs):
         form = UserCreationForm(data=request.POST)
@@ -36,10 +66,9 @@ class SignupView(View):
                         "invalid_code_promo": True
                     }
                     return render(request, self.template_name, context=response)
-            user = User.objects.create_user(username=username, email=username, password=raw_password)
+            user = User.objects.create(username=username, email=username)
             user.set_password(raw_password=raw_password)
             user.save()
-            print(user.password)
             Profile.objects.create(user=user, codePromo=code_promo, skills=code_promo.matieres)
             user = authenticate(request, username=username, password=raw_password)
             if user is not None:
