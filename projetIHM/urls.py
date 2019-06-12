@@ -19,7 +19,7 @@ from django.urls import path, include
 
 from utask.views.board import BoardView, create_project, delete_all_project, BoardAPIViewSet
 from utask.views.profil import updateProfil
-from utask.views.home import HomeView
+from utask.views.home import HomeView, update_user
 from utask.views.signup import SignupView
 from rest_framework.routers import DefaultRouter
 
@@ -39,4 +39,5 @@ urlpatterns = [
     path('save-profil/', updateProfil, name='save-profil'),
     path('delete_all_project/', delete_all_project, name='delete_all-project'),
     path('ajax_create_project/', create_project, name='create_project'),
+    path('ajax_update_user/', update_user, name='update_user'),
 ]

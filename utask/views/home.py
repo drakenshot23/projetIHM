@@ -1,3 +1,5 @@
+from pprint import pprint
+
 from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
 from utask.models import Profile, Project
@@ -6,6 +8,18 @@ from django.http import HttpResponse
 import json
 
 
+def update_user(request):
+    user = request.user
+    data = request.POST.get('data')
+    myjson = json.loads(data)
+    if myjson['attribute'] == "first_name":
+        user.first_name = myjson['value']
+
+    if myjson['attribute'] == "last_name":
+        user.last_name = myjson['value']
+
+    user.save()
+    return JsonResponse({'status': 'Updated'})
 
 
 class HomeView(TemplateView):

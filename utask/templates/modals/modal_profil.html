@@ -11,10 +11,10 @@
                 <div class="vertical_center">
                     <div>
                         <div class="container_input">
-                            <input type="text" value="{{ user.first_name }}">
+                            <input type="text" class="edit-info" data-attribute="first_name" value="{{ user.first_name }}">
                         </div>
                         <div class="container_input">
-                            <input type="text" value="{{ user.last_name }}">
+                            <input type="text" class="edit-info" data-attribute="last_name" value="{{ user.last_name }}">
                         </div>
                     </div>
                 </div>
@@ -35,7 +35,7 @@
                     </div>
                 {% endfor %}
             </div>
-            <input type="submit" id="btn-update-profile" class="primary-btn" value="Valider">
+            <input type="submit" id="btn-update-profile" class="primary-btn" value="Valider" onclick="closeModal('profil')">
         </div>
     </div>
 </div>

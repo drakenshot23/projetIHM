@@ -71,6 +71,7 @@
 
 <script src="{% static 'javascript/homeScroll.js' %}"></script>
 <script src="{% static 'javascript/modal.js' %}"></script>
+<script src="{% static 'javascript/functions.js' %}"></script>
 <script src="{% static 'javascript/jaugeSkill.js' %}"></script>
 <script>
     $(document).ready(function () {
@@ -111,26 +112,5 @@
             }
         });
     });
-
-    $(document).ready(function() {
-  var swiper = new Swiper('.swiper-container', {
-      effect: 'coverflow',
-      grabCursor: true,
-      centeredSlides: true,
-      slidesPerView: 3,
-      coverflowEffect: {
-        rotate: 50,
-        stretch: 0,
-        depth: 100,
-        modifier: 1,
-        slideShadows : true,
-      },
-      pagination: {
-        el: '.swiper-pagination',
-      },
-    });
-})
-
-
 </script>
 </html>

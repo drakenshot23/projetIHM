@@ -338,6 +338,9 @@ menu a:hover{
     #profil p{
         display: none;
     }
+    #container_result_person .card{
+        height: 280px;
+    }
     #container_result_person{
         margin-top:30px ;
     }
