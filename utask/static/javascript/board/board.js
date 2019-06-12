@@ -67,6 +67,8 @@ function newList(csrf_token, listName, listId) {
         group: 'tasks',
         animation: 150,
         onEnd: (evt) => {
+            console.log("test");
+            console.log(evt.to.getAttribute('data-list'));
             changeTaskToNewList(csrf_token, evt.item.getAttribute('data-task'), evt.to.getAttribute('data-list'));
         }
     });
@@ -121,27 +123,36 @@ function addNewTaskEvent(listId) {
             newTask(data['title'], data['new_task'], data['task_list']);
         }
     });
-    // fetch("http://localhost:8000/api/boardAPI/add_new_task/", {
-    //     method: 'POST',
-    //     headers: {
-    //         "X-CSRFToken": csrf_token,
-    //         "Content-Type": "application/json"
-    //     },
-    //     mode: 'cors',
-    //     cache: 'default',
-    //     body: JSON.stringify(data)
-    // }).then((response) => {
-    //     return response.json();
-    // }).then((data) => {
-    //     newTask(data['title'], data['new_task'], data['task_list']);
-    //     console.log(data);
-    // });
+}
+
+function changeListTitle(listId, newListName) {
+    let csrf_token = getCookie('csrftoken');
+
+    let data = {
+        "name": newListName,
+    };
+    $.ajax({
+        type: "POST",
+        headers: {
+            "X-CSRFToken": csrf_token,
+            "Content-Type": "application/json"
+        },
+        url: "/api/boardAPI/"+ listId + "/update_task_list_name/",
+        dataType: "json",
+        traditional: true,
+        crossDomain: true,
+        data: JSON.stringify(data),
+        success: function (data) {
+            console.log(data);
+        }
+    });
 }
 
 function changeTaskToNewList(csrf_token, taskId, newList) {
     let data = {
         "newList": parseInt(newList)
     };
+    console.log("changeTaskToNewList" + newList);
     $.ajax({
         type: "POST",
         headers: {
@@ -157,20 +168,6 @@ function changeTaskToNewList(csrf_token, taskId, newList) {
             console.log(data);
         }
     });
-    // fetch("http://localhost:8000/api/boardAPI/" + taskId + "/change_task_to_other_list/", {
-    //     method: 'POST',
-    //     headers: {
-    //         "X-CSRFToken": csrf_token,
-    //         "Content-Type": "application/json"
-    //     },
-    //     mode: 'cors',
-    //     cache: 'default',
-    //     body: JSON.stringify(data)
-    // }).then((response) => {
-    //     return response.json();
-    // }).then((data) => {
-    //     console.log(data);
-    // });
 }
 
 window.addEventListener('DOMContentLoaded', (event) => {
@@ -192,6 +189,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
             animation: 150,
             dataIdAttr: 'data-task',
             onEnd: (evt) => {
+                console.log("test");
+                console.log(evt.to.getAttribute('data-list'));
                 changeTaskToNewList(csrf_token, evt.item.getAttribute('data-task'), evt.to.getAttribute('data-list'));
             }
         });
@@ -218,24 +217,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
             crossDomain: true,
             data: JSON.stringify(data),
             success: function (data) {
+                console.log("new_list:" + data['new_list']);
                 document.getElementById('list-wrapper').appendChild(newList(csrf_token, data['name'], data['new_list']));
                 console.log(data);
             }
         });
-        // fetch("http://localhost:8000/api/boardAPI/add_task_list/", {
-        //     method: 'POST',
-        //     headers: {
-        //         "X-CSRFToken": csrf_token,
-        //         "Content-Type": "application/json"
-        //     },
-        //     mode: 'cors',
-        //     cache: 'default',
-        //     body: JSON.stringify(data)
-        // }).then((response) => {
-        //     return response.json();
-        // }).then((data) => {
-        //     document.getElementById('list-wrapper').appendChild(newList(csrf_token, data['name'], data['new_list']));
-        // });
     });
 
     document.getElementById('project-name').addEventListener('focusout', () => {
@@ -258,18 +244,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
                     console.log(data);
                 }
             });
-            // fetch("http://localhost:8000/api/boardAPI/" + document.getElementById('project-name').getAttribute('data-project') + "/update_project_title/", {
-            //     method: 'POST',
-            //     headers: {
-            //         "X-CSRFToken": csrf_token,
-            //         "Content-Type": "application/json"
-            //     },
-            //     mode: 'cors',
-            //     cache: 'default',
-            //     body: JSON.stringify(data)
-            // }).then((response) => {
-            //     console.log(response);
-            // });
         }
     });
 
@@ -278,6 +252,14 @@ window.addEventListener('DOMContentLoaded', (event) => {
             let listId = document.getElementsByClassName('add-task-btn')[i].getAttribute('data-list');
             addNewTaskEvent(listId);
         });
+    }
+
+    for (let i = 0; i < document.getElementsByClassName('list-header-name').length; i++) {
+        document.getElementsByClassName('list-header-name')[i].addEventListener('focusout', () => {
+            let listId = document.getElementsByClassName('list-header-name')[i].getAttribute('data-list');
+            let newListName = document.getElementsByClassName('list-header-name')[i].value;
+            changeListTitle(listId, newListName);
+        })
     }
 });
 
