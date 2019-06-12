@@ -4,8 +4,6 @@ from utask.models import Profile, Project
 import json
 
 
-
-
 class HomeView(TemplateView):
     template_name = 'page/home.html'
 
