@@ -3,9 +3,9 @@
 ## Description
 Application de gestion de projets pour la licence PRISM.
 
-<img src="utask_login.png" width="400px" height="350px"/> 
-<img src="utask_register.png" width="400px" height="350px"/>
-<img src="utask_firsthalf_home.png" width="400px" height="350px"/>
+<img src="utask_login.png" width="500px" height="370px"/> 
+<img src="utask_register.png" width="500px" height="370px"/>
+<img src="utask_firsthalf_home.png" width="500px" height="370px"/>
 
 ## Installation
 - Cloner le projet sur votre machine
